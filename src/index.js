@@ -1,11 +1,12 @@
 import './sass/main.scss';
 import galleryTemp from './templates/gallery.hbs';
 import apiService from './js/apiService.js';
+
+import * as basicLightbox from 'basiclightbox';
+import "basiclightbox/dist/basicLightbox.min.css";
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/Material.css';
-import * as basicLightbox from 'basiclightbox';
-import "basiclightbox/dist/basicLightbox.min.css"
-import { alert, notice, info, success, error, Stack } from '@pnotify/core';
+import { alert, notice, info, success, error } from '@pnotify/core';
 
 const refs = {
     form:document.querySelector('#search-form'),
@@ -39,14 +40,10 @@ let searchQuery = '';
 async function onSearch(e) {
      e.preventDefault();
     if (!refs.input.value) {
-        return notice({
-            newStack: new Stack({
-                dir1: 'down',
-      firstpos1: 50,
-      modal: false,
-      maxOpen: Infinity}),
-            title:'Empty request',
+        return alert({
+            title:'Empty field',
             text:'Please, enter word!',
+
         });
     }
     searchQuery = refs.input.value;
