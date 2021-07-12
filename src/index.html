@@ -13,10 +13,13 @@
 
 <body>
   <div class="container">
+    <h1 class="title">Let`s try search!</h1>
     <form class="search-form" id="search-form">
-      <input type="text" name="query" autocomplete="off" placeholder="Search images..." data-action='input' />
+      <input type="text" name="query" autocomplete="off" placeholder="Search images..." data-action='input'
+        class="form-input" />
+      <button type="button" data-action="reset" class="form-btn">Reset</button>
     </form>
-    <button type="button" data-action="reset">Reset</button>
+
     <div class="images-list">
       <ul class="gallery">
         <!-- Список <li> с карточками изображений -->
